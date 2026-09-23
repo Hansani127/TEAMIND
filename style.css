@@ -1,0 +1,134 @@
+/* TEAMIND - Custom Styles */
+/* Additional custom styles beyond the inline CSS in header.php */
+
+/* Smooth transitions for all interactive elements */
+a, button, .dashboard-card, .upload-area {
+    transition: all 0.3s ease;
+}
+
+/* Custom scrollbar for sidebar */
+.sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.2);
+    border-radius: 2px;
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.spinner-border {
+    animation: spin 0.75s linear infinite;
+}
+
+/* Fade in animation for page elements */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Pulse animation for notifications */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.badge-pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Custom tooltip styles */
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 8px;
+    background: #1a1a2e;
+    color: #fff;
+    font-size: 11px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+
+[data-tooltip]:hover::after {
+    opacity: 1;
+}
+
+/* Print styles for reports */
+@media print {
+    .sidebar,
+    .top-navbar,
+    .section-header a,
+    .btn-primary-custom {
+        display: none !important;
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+    }
+
+    .dashboard-card {
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+
+
+}
+
+/* Compact stat cards for admin dashboard */
+.stat-card.compact {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.stat-card.compact .stat-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.stat-card.compact .stat-info h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.stat-card.compact .stat-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.3;
+}
+
+
